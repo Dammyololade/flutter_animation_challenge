@@ -24,7 +24,7 @@ class _LandingPageScreenState extends State<LandingPageScreen> {
   List<Color> _colors;
   ValueNotifier<int> pageChangeNotifier = ValueNotifier(2);
 
-  Duration animationDuration = Duration(seconds: 1);
+  Duration animationDuration = Duration(milliseconds: 500);
 
   @override
   void initState() {
@@ -227,110 +227,120 @@ class PlacePage extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(4)),
               margin: EdgeInsets.symmetric(vertical: 5),
-              child: Hero(
-                tag: model.image,
-                child: Container(
-                  height: 200,
-                  child: Stack(
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(4),
-                            image: DecorationImage(
-                                image: AssetImage(
-                                    "images/image_${number.toInt() + 1}.jpg"),
-                                fit: BoxFit.cover)),
-                      ),
-                      Container(
-                        height: 200,
-                        width: double.infinity,
-                        color: Colors.black26,
-                      ),
-                      Positioned(
-                        top: 30,
-                        left: 20,
-                        right: 20,
-                        bottom: 15,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                          "New York",
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 30
+              color: Colors.transparent,
+              child: Container(
+                height: 200,
+                child: Hero(
+                  tag: model.image,
+                  child: Material(
+                    type: MaterialType.transparency,
+                    child: Stack(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(4),
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      "images/image_${number.toInt() + 1}.jpg"),
+                                  fit: BoxFit.cover)),
+                        ),
+                        Container(
+                          height: 200,
+                          width: double.infinity,
+                          color: Colors.black26,
+                        ),
+                        Positioned(
+                          top: 30,
+                          left: 20,
+                          right: 20,
+                          bottom: 15,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                "New York",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 30
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
 
-                                      Text(
-                                        "470USD",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 30
+                                        Text(
+                                          "470USD",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 30
+                                          ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                SizedBox(width: 20,),
-                                Icon(Icons.flight_takeoff, size: 60, color: Colors.white,)
-                              ],
-                            ),
-
-                            Spacer(),
-
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    children: [
-                                      Text("Empire stato",
-                                        style: TextStyle(
-                                          color: Colors.white70,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w500
-                                        ),
-                                      ),
-                                      SizedBox(height: 2,),
-                                      Text("22/09/2020",
-                                        style: TextStyle(
-                                            color: Colors.white70,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w600
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Spacer(),
-                                Container(
-                                  padding: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.white70),
-                                    borderRadius: BorderRadius.circular(20)
-                                  ),
-                                  child: Text("Check-in",
-                                    style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w700
+                                      ],
                                     ),
                                   ),
-                                )
-                              ],
-                            )
-                          ],
+                                  SizedBox(width: 20,),
+                                  Icon(Icons.flight_takeoff, size: 60, color: Colors.white,)
+                                ],
+                              ),
+
+                              Spacer(),
+
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      children: [
+                                        Text("Empire stato",
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w500
+                                          ),
+                                        ),
+                                        SizedBox(height: 2,),
+                                        Text("22/09/2020",
+                                          style: TextStyle(
+                                              color: Colors.white70,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w600
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  Container(
+                                    padding: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.white70),
+                                      borderRadius: BorderRadius.circular(20)
+                                    ),
+                                    child: Text("Check-in",
+                                      style: TextStyle(
+                                          color: Colors.white70,
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w700
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          )
                         )
-                      )
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),

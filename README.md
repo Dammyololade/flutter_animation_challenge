@@ -1,6 +1,15 @@
 # flutter_challenge
 
-A new Flutter application.
+A flutter project to showcase how to use pageview 3dMatix and animation in a mobile app.
+
+
+
+<div style="text-align: center"><table><tr>
+  <td style="text-align: center">
+  <a href="https://github.com/Dammyololade/flutter_animation_challenge/blob/master/demo.gif">
+    <img src="https://github.com/Dammyololade/flutter_animation_challenge/blob/master/demo.gif" width="200"/></a>
+</td>
+</tr></table></div>
 
 ## Getting Started
 

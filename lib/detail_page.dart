@@ -25,19 +25,17 @@ class _DetailsPageState extends State<DetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: widget.model.bgColor.withOpacity(.9),
-      body: GestureDetector(
-        onVerticalDragDown: (ff){
-          //Navigator.pop(context);
-        },
-        child: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              backgroundColor: Colors.transparent,
-              expandedHeight: 200,
-              flexibleSpace: Hero(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            backgroundColor: Colors.transparent,
+            expandedHeight: 200,
+            flexibleSpace: Container(
+              height: 300,
+              child: Hero(
                 tag: model.image,
-                child: Container(
-                  height: 300,
+                child: Material(
+                  type: MaterialType.transparency,
                   child: Stack(
                     children: [
                       Image.asset(
@@ -65,13 +63,19 @@ class _DetailsPageState extends State<DetailsPage> {
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          "New York",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 30
-                                          ),
+                                        Row(
+                                          children: [
+                                            Expanded(
+                                              child: Text(
+                                                "New York",
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 30
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
 
                                         Text(
@@ -85,7 +89,7 @@ class _DetailsPageState extends State<DetailsPage> {
                                       ],
                                     ),
                                   ),
-                                  SizedBox(width: 20,),
+                                  //Spacer(),
                                   Icon(Icons.flight_takeoff, size: 60, color: Colors.white,)
                                 ],
                               ),
@@ -137,23 +141,23 @@ class _DetailsPageState extends State<DetailsPage> {
                   ),
                 ),
               ),
-              actions: [
-                IconButton(icon: Icon(Icons.menu, color: Colors.white70,), onPressed: () {  },)
-              ],
             ),
+            actions: [
+              IconButton(icon: Icon(Icons.menu, color: Colors.white70,), onPressed: () {  },)
+            ],
+          ),
 
-            SliverToBoxAdapter(
-              child: Hero(
-                tag: "${model.image}_container",
-                child: Container(
-                  height: 500,
-                  margin: EdgeInsets.symmetric(horizontal: 20),
-                  child: PageCardDesign(model),
-                ),
+          SliverToBoxAdapter(
+            child: Hero(
+              tag: "${model.image}_container",
+              child: Container(
+                height: 500,
+                margin: EdgeInsets.symmetric(horizontal: 20),
+                child: PageCardDesign(model),
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
