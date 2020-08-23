@@ -197,21 +197,9 @@ class PlacePage extends StatelessWidget {
     double value = Provider.of<PageViewHolder>(context).value;
     double diff = (number - value);
     final matrix = Matrix4.identity()
-      ..setEntry(3, 3, 1) // increase scale by 90
+      ..setEntry(3, 3, 1) // increase scale by 100
       ..setEntry(1, 1, 1) // changing scale along Y azis
       ..setEntry(3, 0, 0.0005 * -diff); // changing perspective along x axis
-
-//    final matrix = Matrix4.identity()
-//      ..setEntry(3, 3, 1 / 0.9) // increase scale by 90
-//      ..setEntry(1, 1, fraction) // changing scale along Y azis
-//      ..setEntry(3, 0, 0.004 * -diff); // changing perspective along x axis
-
-    //matrix for shadow
-//    final shadowMatrix = Matrix4.identity()
-//      ..setEntry(3, 3, 1 / 1.6) // increase scale by 90
-//      ..setEntry(1, 1, -0.004) // changing scale along Y axis
-//      ..setEntry(3, 0, 0.002 * diff) // changing perspective along x axis
-//      ..rotateX(1.309); // rotating shadow along x axis
 
     return Transform(
       transform: matrix,
